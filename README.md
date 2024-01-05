@@ -28,14 +28,14 @@ Build and start the Docker containers using Docker Compose:
 
    ```shell
    docker-compose up -d
-```
+   ```
 Your application should now be running with the specified services and configurations.
 
 To stop and remove the containers, use the following command:
 
    ```shell
-docker-compose down
-```
+   docker-compose down
+   ```
 .env File
 The .env file contains environment variables and secrets that are used by the Docker Compose configuration. You should define sensitive information such as passwords, API keys, and other secrets in this file. Here's an example of what the .env file might look like:
 
