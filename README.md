@@ -17,8 +17,8 @@ Before you can use this Docker Compose setup, ensure that you have the following
 1. Clone this repository to your local machine:
 
    ```shell
-   git clone https://github.com/yourusername/your-docker-compose-repo.git
-   cd your-docker-compose-repo
+   git clone git@github.com:Oamo-io/ceramic-node-docker-compose.git
+   cd ceramic-node-docker-compose
    ```
 Create a .env file in the same directory as the docker-compose.yml file, and define your secrets and environment variables as needed. Refer to the .env section below for details.
 
