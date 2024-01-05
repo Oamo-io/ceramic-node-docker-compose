@@ -2,7 +2,6 @@
 Copy code
 # Docker Compose Setup for Your Ceramic Network Application
 
-**Author:** [ahadjeres](https://github.com/ahadjeres)
 
 This repository contains a Docker Compose configuration to set up and run various services for your Ceramic network application using containers. Docker Compose allows you to define and manage multi-container Docker applications.
 

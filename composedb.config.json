@@ -1,0 +1,42 @@
+{
+  "anchor": {
+    "auth-method": "did",
+    "anchor-service-url": "https://cas-direct.3boxlabs.com/",
+    "ethereum-rpc-url": "https://eth-mainnet.g.alchemy.com/v2/api_key_here"
+  },
+  "http-api": {
+    "cors-allowed-origins": [".*"],
+    "admin-dids": ["did:key:example-admin-did-1", "did:key:example-admin-did-2"]
+  },
+  "ipfs": {
+    "mode": "remote",
+    "host": "http://example-ipfs-host:5001"
+  },
+  "logger": {
+    "log-level": 1,
+    "log-to-files": false
+  },
+  "metrics": {
+    "metrics-exporter-enabled": false
+  },
+  "network": {
+    "name": "mainnet"
+  },
+  "node": {
+    "private-seed-url": "inplace:ed25519#example-private-seed"
+  },
+  "state-store": {
+    "mode": "fs",
+    "local-directory": "./ceramic-data"
+  },
+  "indexing": {
+    "db": "postgres://postgres:example-postgres-password@postgres:5432/ceramic",
+    "allow-queries-before-historical-sync": true,
+    "models": [
+      "kjzl6hvfrbw6c8ap4601g2bdfcg76fk0o8w1h8h3dq2j5422ahtj9kntkp4li67",
+      "kjzl6hvfrbw6c8rkzc6bhsulz6efbf7zq555nejv2ryx8a7d09gk0x0jvu5jcdl",
+      "kjzl6hvfrbw6c5akc11vfq4cm5n86hs1d18hrvfhpunf3lbyc4fah0ogk0g8d7g",
+      "kjzl6hvfrbw6c6h277voi81x15om4uw16deshoxh0dq1lvj1zgnbiunu69kqtdb"
+    ]
+  }
+}

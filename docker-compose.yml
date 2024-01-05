@@ -1,0 +1,77 @@
+version: "3.6"
+services:
+  caddy:
+    image: caddy:2-alpine
+    container_name: caddy
+    restart: unless-stopped
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile
+      - caddy_data:/data
+      - caddy_config:/config
+    networks:
+      - oamo-net
+    environment:
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD} # Reference the environment variable
+
+  ipfs:
+    container_name: ipfs
+    restart: always
+    platform: linux/amd64
+    ports:
+      - "5001:5001"
+      - "8011:8011"
+    volumes:
+      - ./ipfs:/data/ipfs
+    image: ceramicnetwork/go-ipfs-daemon:latest
+    networks:
+      - oamo-net
+
+  ceramic:
+    image: ceramicnetwork/js-ceramic:latest
+    platform: linux/amd64
+    container_name: ceramic
+    restart: always
+    ports:
+      - "7007:7007"
+    networks:
+      - oamo-net
+    volumes:
+      - "ceramic:/root/.ceramic/logs"
+      - "ceramic:/root/.ceramic/statestore"
+      - "./composedb.config.json:/root/.ceramic/daemon.config.json"
+    depends_on:
+      - "ipfs"
+      - "postgres"
+
+  postgres:
+    container_name: postgres
+    image: postgres:14.7
+    restart: always
+    volumes:
+      - postgres:/var/lib/postgresql/data
+      - ./init-db.sql:/docker-entrypoint-initdb.d/init-db.sql
+    ports:
+      - "5432:5432"
+    networks:
+      - oamo-net
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD} # Reference the environment variable
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+networks:
+  oamo-net:
+    driver: bridge
+
+volumes:
+  postgres:
+  ipfs:
+  ceramic:
+  caddy_data:
+  caddy_config:
