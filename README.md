@@ -19,20 +19,23 @@ Before you can use this Docker Compose setup, ensure that you have the following
    ```shell
    git clone https://github.com/yourusername/your-docker-compose-repo.git
    cd your-docker-compose-repo
+   ```
 Create a .env file in the same directory as the docker-compose.yml file, and define your secrets and environment variables as needed. Refer to the .env section below for details.
 
 Modify the docker-compose.yml file as needed to customize your services and containers. You can adjust container names, volumes, ports, and other configurations as required.
 
 Build and start the Docker containers using Docker Compose:
 
-shell
-docker-compose up -d
+   ```shell
+   docker-compose up -d
+```
 Your application should now be running with the specified services and configurations.
 
 To stop and remove the containers, use the following command:
 
-shell
+   ```shell
 docker-compose down
+```
 .env File
 The .env file contains environment variables and secrets that are used by the Docker Compose configuration. You should define sensitive information such as passwords, API keys, and other secrets in this file. Here's an example of what the .env file might look like:
 
