@@ -26,20 +26,17 @@ Modify the docker-compose.yml file as needed to customize your services and cont
 Build and start the Docker containers using Docker Compose:
 
 shell
-Copy code
 docker-compose up -d
 Your application should now be running with the specified services and configurations.
 
 To stop and remove the containers, use the following command:
 
 shell
-Copy code
 docker-compose down
 .env File
 The .env file contains environment variables and secrets that are used by the Docker Compose configuration. You should define sensitive information such as passwords, API keys, and other secrets in this file. Here's an example of what the .env file might look like:
 
 plaintext
-Copy code
 # .env file
 
 # PostgreSQL password
@@ -71,8 +68,6 @@ If you have any improvements or suggestions for this Docker Compose setup, pleas
 License
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-less
-Copy code
 
 Make sure to replace `[ahadjeres](https://github.com/ahadjeres)` with your actual GitHub handle and profile link.
 
