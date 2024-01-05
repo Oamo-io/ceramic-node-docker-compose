@@ -1,5 +1,5 @@
 
-Copy code
+
 # Docker Compose Setup for Your Ceramic Network Application
 
 
